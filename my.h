@@ -11,8 +11,21 @@
 #ifndef MY_H_
 # define MY_H_
 
-#define SIZE_X 1000
-#define SIZE_Y 1000
+# define SIZE_X	1000
+# define SIZE_Y	1000
+
+# define X_LIGHT  1200
+# define Y_LIGHT  1200
+# define Z_LIGHT  100
+
+# define X_EYES  500
+# define Y_EYES  500
+# define Z_EYES  -300
+
+# define X_CIRCLE  500
+# define Y_CIRCLE  500
+# define Z_CIRCLE  300
+# define R_CIRCLE  200
 
 typedef struct	s_val
 {

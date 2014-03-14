@@ -11,19 +11,91 @@
 #include <stdlib>
 #include "my.h"
 
-char	*my_cercle()
+int	check_circle(int *coef, int x, int y)
 {
-  return (NULL);
+  coef[0] = ;
+  coef[1] = ;
+  coef[2] = ;
+  coef[3] = ;
+  coef[4] = ;
+  coef[5] = ;
+  coef[5] = ;
+  coef[7] = ;
+  coef[8] = ;
+  coef[9] = ;
+  coef[10] = ;
+  coef[11] = ;
+  if (equation_quadrilic(coef, x, y) == -1)
+    return (1);
+  return(0);
 }
 
-char	*my_plan(t_wmlx mlx)
+int	check_cylindre(int *coef, int x, int y)
 {
+  coef[0] = ;
+  coef[1] = ;
+  coef[2] = ;
+  coef[3] = ;
+  coef[4] = ;
+  coef[5] = ;
+  coef[5] = ;
+  coef[7] = ;
+  coef[8] = ;
+  coef[9] = ;
+  coef[10] = ;
+  coef[11] = ;
+  if (equation_quadrilic(coef, x, y) == -1)
+    return (1);
+  return(0);
+}
+
+int	check_elipse(int *coef, int x, int y)
+{
+  coef[0] = ;
+  coef[1] = ;
+  coef[2] = ;
+  coef[3] = ;
+  coef[4] = ;
+  coef[5] = ;
+  coef[5] = ;
+  coef[7] = ;
+  coef[8] = ;
+  coef[9] = ;
+  coef[10] = ;
+  coef[11] = ;
+  if (equation_quadrilic(coef, x, y) == -1)
+    return (1);
+  return(0);
+}
+
+int	check_cone(int *coef, int x, int y)
+{
+  coef[0] = ;
+  coef[1] = ;
+  coef[2] = ;
+  coef[3] = ;
+  coef[4] = ;
+  coef[5] = ;
+  coef[5] = ;
+  coef[7] = ;
+  coef[8] = ;
+  coef[9] = ;
+  coef[10] = ;
+  coef[11] = ;
+  if (equation_quadrilic(coef, x, y) == -1)
+    return (1);
+  return(0);
+}
+
+int	*create_coef()
+{
+  int	*coef;
   int	i;
 
-  i = (SIZE_X / 4) + SIZE_Y / 2 * (mlx.val.bpp / 8);
-  while (i < SIZE_X * SIZE_Y * (mlx.val.bpp / 8))
-    {
-      
-    }
-
+  if ((coef = malloc(12 * sizeof(int))) == NULL)
+    return(-1);
+  i = -1;
+  while (++i < 12)
+    coef[i] = 0;
+  return (coef);
 }

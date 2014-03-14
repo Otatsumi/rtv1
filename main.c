@@ -28,8 +28,11 @@ char	*in_data(t_wmlx mlx)
   i = 0;
   while (i < SIZE_X * SIZE_Y * (mlx.val.bpp / 8))
     {
-      mlx.data[i + 1] = 127;
-      i = i + mlx.val.bpp / 8;
+      if (check_plan() == 0)
+	;
+      else if (check_shère() == 0)
+	;
+      i = i + (mlx.val.bpp / 8);
     }
   return (mlx.data);
 }
