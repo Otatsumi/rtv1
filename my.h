@@ -16,10 +16,10 @@
 
 typedef struct	s_val
 {
-  int	*line;
-  int	*bpp;
-  int	*value;
-  int	*endian;
+  int	line;
+  int	bpp;
+  int	value;
+  int	endian;
 }		t_val;
 
 typedef struct	s_wmlx

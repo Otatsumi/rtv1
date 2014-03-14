@@ -19,6 +19,30 @@ int	gere_key(int keycode)
   return (keycode);
 }
 
+char	*in_data(t_wmlx mlx)
+{
+  int	i;
+
+  if ((mlx.data = mlx_get_data_addr(mlx.img, &mlx.val.bpp, &mlx.val.line, &mlx.val.endian)) == NULL)
+    return (NULL);
+  i = 0;
+  while (i < SIZE_X * SIZE_Y * (mlx.val.bpp / 8))
+    {
+      mlx.data[i + 1] = 127;
+      i = i + mlx.val.bpp / 8;
+    }
+  return (mlx.data);
+}
+
+int		gere_expose(void *param)
+{
+  t_wmlx	*mlx;
+
+  mlx = param;
+  mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img, 0, 0);
+  return (0);
+}
+
 int		main()
 {
   t_wmlx	mlx;
@@ -28,9 +52,11 @@ int		main()
   if ((mlx.win = mlx_new_window(mlx.mlx, SIZE_X, SIZE_Y, "Hello world!")) == 0)
     return (-1);
   mlx.img = mlx_new_image(mlx.mlx, SIZE_X, SIZE_Y);
-  /* mlx.data = mlx_get_data_addr(mlx.img, mlx.val.bpp, mlx.val.line, mlx.val.endian); */
+  if ((mlx.data = in_data(mlx)) == NULL)
+    return (-1);
   mlx_put_image_to_window(mlx.mlx, mlx.win, mlx.img, 0, 0);
   mlx_key_hook(mlx.win, &gere_key, &mlx);
+  mlx_expose_hook(mlx.win, &gere_expose, &mlx);
   mlx_loop(mlx.mlx);
   return (0);
 }
