@@ -21,17 +21,25 @@ int	gere_key(int keycode)
 
 char	*in_data(t_wmlx mlx)
 {
+  int	*coef;
   int	i;
+  int	x;
+  int	y;
 
-  if ((mlx.data = mlx_get_data_addr(mlx.img, &mlx.val.bpp, &mlx.val.line, &mlx.val.endian)) == NULL)
+  if ((coef = create_coef()) == NULL)
+    return (NULL);
+  mlx.data = mlx_get_data_addr(mlx.img, &mlx.val.bpp,
+			       &mlx.val.line, &mlx.val.endian);
+  if (mlx.data == NULL)
     return (NULL);
   i = 0;
   while (i < SIZE_X * SIZE_Y * (mlx.val.bpp / 8))
     {
-      if (check_plan() == 0)
-	;
-      else if (check_shère() == 0)
-	;
+      x = -(SIZE_X / 2);
+      x = x + (i / (mlx.val.bpp / 8)) % (mlx.val.line / (mlx.val.bpp / 8));
+      y = -(SIZE_Y / 2) + 1000 - (i / mlx.val.line);
+      if (init_circle(coef, x, y) == 0)
+	mlx.data[i] = 127;
       i = i + (mlx.val.bpp / 8);
     }
   return (mlx.data);

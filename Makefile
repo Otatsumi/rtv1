@@ -10,13 +10,15 @@
 
 NAME   = rtv1
 
-SRC	= main.c
+SRC	= main.c \
+	  form.c \
+	  calc.c
 
 OBJ     = $(SRC:.c=.o)
 
 CFLAGS  = -W -Wall -Wextra -pedantic
 
-CMP	= -L /usr/lib64 -lmlx_$(HOSTTYPE) -L /usr/lib64/x11 -lXext -lX11
+CMP	= -L /usr/lib64 -lmlx_$(HOSTTYPE) -L /usr/lib64/x11 -lXext -lX11 -lm
 
 all: $(NAME)
 

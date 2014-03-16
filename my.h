@@ -18,13 +18,13 @@
 # define Y_LIGHT  1200
 # define Z_LIGHT  100
 
-# define X_EYES  500
-# define Y_EYES  500
+# define X_EYES  0
+# define Y_EYES	 0
 # define Z_EYES  -300
 
-# define X_CIRCLE  500
-# define Y_CIRCLE  500
-# define Z_CIRCLE  300
+# define X_CIRCLE  0
+# define Y_CIRCLE  0
+# define Z_CIRCLE  200
 # define R_CIRCLE  200
 
 typedef struct	s_val
@@ -43,5 +43,9 @@ typedef struct	s_wmlx
   char	*data;
   t_val	val;
 }		t_wmlx;
+
+int     init_circle(int *coef, int x, int y);
+int     equation_quadrilic(int *c, int *v, int i, int y);
+int     *create_coef();
 
 #endif /* !MY_H_ */
